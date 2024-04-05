@@ -1,23 +1,49 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 
-const Login = () => {
-  const handleLogin = (e) => {
+const Register = () => {
+  const handleRegister = (e) => {
     e.preventDefault();
 
     const form = new FormData(e.currentTarget);
-    console.log(form.get("password"));
+    console.log(form.get("email"));
   };
 
   return (
     <div>
       <Navbar></Navbar>
-      <h2 className="text-3xl text-center mt-12 font-bold">Please Login</h2>
+      <h2 className="text-3xl text-center mt-12 font-bold">
+        Register Your Account
+      </h2>
 
       <div className="hero bg-base-200 py-7">
         <div className="hero-content w-full">
           <div className="card shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-            <form onSubmit={handleLogin} className="card-body">
+            <form onSubmit={handleRegister} className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo Url</span>
+                </label>
+                <input
+                  type="text"
+                  name="photo"
+                  placeholder="Photo Url"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -37,7 +63,7 @@ const Login = () => {
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
+                  placeholder="Password"
                   className="input input-bordered"
                   required
                 />
@@ -48,12 +74,12 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Register</button>
               </div>
               <p className="text-center mt-6">
-                Don&apos;t have an account?{" "}
-                <Link className="text-primary underline" to={"/register"}>
-                  Register
+                Already have an account?{" "}
+                <Link className="text-primary underline" to={"/login"}>
+                  Login
                 </Link>
               </p>
             </form>
@@ -64,4 +90,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
